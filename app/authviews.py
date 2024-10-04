@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, session, request, g, flash, get_flashed_messages
-from . import loginForm, registerForm
+from .forms import loginForm, registerForm
 from .db import get_db
 from .encryption import hash_pw, check_pw
 authviews = Blueprint('authviews', __name__)
