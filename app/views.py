@@ -9,4 +9,4 @@ def root():
 
 @views.route('/dashboard', methods=['GET'])
 def dashboard():
-    return 'You have successfully logged in'
+    return f'You have successfully logged in as {{username}}'

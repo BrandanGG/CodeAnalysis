@@ -583,10 +583,6 @@ video {
   height: 100vh;
 }
 
-.list-disc {
-  list-style-type: disc;
-}
-
 .list-none {
   list-style-type: none;
 }
