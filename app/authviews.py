@@ -92,8 +92,5 @@ def isPasswordCorrect(username: str, password: str) -> bool:
     
     stored_hash = result[0]
     
-    if check_pw(password, stored_hash):
-        return True
-    else:
-        print(f"Password comparison failed for user: {username}")
-        return False
+    #return true, else return failed.
+    return check_pw(password, stored_hash) or print(f"Password comparison failed for user: {username}")
