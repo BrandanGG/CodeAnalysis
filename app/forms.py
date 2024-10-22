@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, FileField
 from wtforms.validators import InputRequired, Length
 #######################
 ### FORM MANAGEMENT ###
@@ -15,4 +15,4 @@ class registerForm(loginForm):
     email = StringField('email', validators=[InputRequired(), Length(min=4, max=40)])
     
 class fileSubmissionForm(FlaskForm):
-    File = forms.FileField( required=False)
+    file = FileField('file', validators=[InputRequired()])
