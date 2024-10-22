@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS previous_submissions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     submission TEXT NOT NULL,
-    vulns TEXT, -- stores the logged vulnerabilities in JSON format
+    vulns TEXT -- stores the logged vulnerabilities in JSON format
 );
 -- example structure of json data for the vulns column.
 --{
