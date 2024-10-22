@@ -13,3 +13,6 @@ class loginForm(FlaskForm):
 
 class registerForm(loginForm):
     email = StringField('email', validators=[InputRequired(), Length(min=4, max=40)])
+    
+class fileSubmissionForm(FlaskForm):
+    File = forms.FileField( required=False)

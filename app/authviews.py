@@ -14,7 +14,6 @@ def login():
             #Collect form data
             username = form.username.data
             password = form.password.data
-            print(username, '\n', password)
             # checking if the username exists in the database, and if the password is correct to the stored database.
             if not doesUNameExist(username) or not isPasswordCorrect(username, password):
                 print('error with username or password')
@@ -90,10 +89,9 @@ def isPasswordCorrect(username: str, password: str) -> bool:
     if result is None:
         print(f"No user found for username: {username}")
         return False
-
+    
     stored_hash = result[0]
-    print(f"Stored hash: {stored_hash}")  # Debug statement
-
+    
     if check_pw(password, stored_hash):
         return True
     else:

@@ -1,19 +1,17 @@
 from flask import Flask, render_template, request, redirect, Blueprint, url_for
-import secrets
+from dotenv import load_dotenv
 import os
-
-
-
 
 ###################
 ### APPLICATION ###
 ###################
 def create_app():
+    load_dotenv()
     app = Flask(__name__)
 
     app.config.from_mapping(
-        SECRET_KEY = secrets.token_hex(32),
-        DATABASE = os.path.join(app.instance_path, 'data_storage.sqlite')
+        SECRET_KEY = os.getenv('key'),
+        DATABASE = os.path.join(app.instance_path, os.getenv('db'))
     )
     if not os.path.exists(app.instance_path):
         os.makedirs(app.instance_path)

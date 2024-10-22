@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='dist/output.css')}}">
+    <script defer src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</head>
+<body class="bg-gray1 overflow-y-hidden">
+
+    <!-- Container for responsive layout -->
+    <div class="flex flex-col md:flex-row h-screen">
+        <!-- Sidebar -->
+        <div class="w-full md:w-64 bg-gray2 text-white h-auto md:h-full">
+            <div class="p-8 text-4xl text-center font-black text-green1">
+                CodeGuard
+            </div>
+            <div class="mt-4">
+                <h4 class="text-gray-400 p-2 text-sm">Previous Submissions...</h4>
+            </div>
+            <nav>
+                <a href="#" class="block py-2.5 px-4 text-gray-200 hover:bg-gray-700 hover:text-white transition duration-200">Placeholder for previous submissions</a>
+                <a href="#" class="block py-2.5 px-4 text-gray-200 hover:bg-gray-700 hover:text-white transition duration-200">Placeholder for previous submissions</a>
+                <a href="#" class="block py-2.5 px-4 text-gray-200 hover:bg-gray-700 hover:text-white transition duration-200">Placeholder for previous submissions</a>
+                <a href="#" class="block py-2.5 px-4 text-gray-200 hover:bg-gray-700 hover:text-white transition duration-200">Placeholder for previous submissions</a>
+            </nav>
+        </div>
+
+        <!-- Main content -->
+        <div class="w-full bg-gray3 flex-1 m-4 rounded-3xl shadow-2xl">
+            <!-- Top settings bar -->
+             <div class="flex items-center justify-between p-4 border-solid border-b-2 border-gray-300">
+                <h1 class="text-3xl font-bold text-gray-300">Code Analysis</h1>
+                <div class="flex items-center relative">
+                    <form method=post enctype=multipart/form-data>
+                        <!-- Hidden actual file input -->
+                        <input id="fileinput" type="file" class="hidden">
+                        <!-- Custom button and label -->
+                        <label for="fileinput" id="filelabel" class="mr-8 bg-green1 hover:bg-green2 rounded-full p-2 text-gray-300 border-solid border-1 border-black cursor-pointer">
+                            Upload File
+                        </label>
+                    </form>
+                    <button class="flex items-center justify-center rounded-full border-solid border-2 border-black Shadow-2xl">
+                        <img id="usersettings" class="object-contain w-10 h-10 bg-gray-300 rounded-full " src="{{ url_for('static', filename='images/person-svgrepo-com.svg') }}" alt="Description of Image">
+                    </button>
+                    <div id="usermenu" class="hidden absolute left-0 bg-stone-700 border border-stone-900 rounded z-10 top-full shadow-2xl">
+                        <button class="block w-full p-2 rounded-md text-green1 hover:text-green2">Settings</button>
+                        <button class="p-2 rounded-md text-green1 hover:text-green2">Logout</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Code previewer and results section -->
+             <div class="flex items-center justify-between p-4 border-solid border-b-2 border-gray-300 w-full h-full">
+                <div class="w-2/3 h-full"> <!--Code preview-->
+                    <div class="w-full flex justify-between"> 
+                        <h2 class="inline-block text-green1 text-lg">{filename: } <span class="text-white">(placeholder)</span></h2>
+                        <h2 class="inline-block text-green1 text-lg">Detected Language: <span class="text-white">{placeholder}</span></h2>
+                    </div>
+                </div>
+                <div class="w-1/3 h-full"> <!--Results-->test
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

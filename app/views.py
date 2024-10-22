@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, url_for, request
+from flask import Blueprint, redirect, url_for, request, render_template
 
 views = Blueprint('views', __name__)
 
@@ -9,4 +9,4 @@ def root():
 
 @views.route('/dashboard', methods=['GET'])
 def dashboard():
-    return f'You have successfully logged in as {{username}}'
+    return render_template('dashboard.html')
