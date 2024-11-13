@@ -14,4 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
             fileLabel.textContent = "Upload File";
         });
     }
+
+    // hide flashed messages
+    setTimeout(function() {
+        const flashes = document.querySelectorAll('.flash');
+        flashes.forEach(flash => flash.classList.add('hidden'));
+    }, 3000); // hide after 3 seconds
 });

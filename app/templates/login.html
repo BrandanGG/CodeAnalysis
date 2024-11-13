@@ -14,7 +14,7 @@
             <span class="block p-4">Enhance.</span>
             <span class="block p-4">CodeGuard.</span>
         </h2>        
-        <img class="w-48 h-48 object-contain mb-4" src="{{ url_for('static', filename='images/c.png') }}" alt="Codeguard Image"> <!-- Adjusted image size -->
+        <img class="w-48 h-48 object-contain mb-4" src="{{ url_for('static', filename='images/C.png') }}" alt="Codeguard Image"> <!-- Adjusted image size -->
     </div>
     
     
@@ -27,7 +27,7 @@
             <!-- Flash Messages -->
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    <div class="mb-4 bg-red1 border-solid rounded-lg">
+                    <div class="mb-4 border-solid rounded-lg flash {% if category == 'error' %} bg-red1 {% elif category == 'success' %} bg-green2 {% endif %}">
                         {% for category, message in messages %}
                             <div class="text-white bg-{{ category }}-500 p-2 rounded mb-2">
                                 {{ message }}
