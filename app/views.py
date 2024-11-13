@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, url_for, request, render_template, flash, get_flashed_messages, current_app
+from flask import Blueprint, redirect, url_for, request, render_template, flash, get_flashed_messages, current_app, jsonify
 from werkzeug.utils import secure_filename
 from .forms import fileSubmissionForm
 from .Utils.ReadLang import readJson
@@ -41,5 +41,7 @@ def dashboard():
         filesplit = filename.split('.')
         fileType = readJson(filename)  # If you want to process the file further
         flash('File successfully uploaded', 'success')
-    
-    return render_template('dashboard.html', form=form, fileType=fileType, fileName=filename)
+        
+        return render_template('dashboard.html', form=form, fileType=fileType, fileName=filename)
+    else:
+        return render_template('dashboard.html', form=form)
