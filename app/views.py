@@ -1,7 +1,9 @@
 from flask import Blueprint, redirect, url_for, request, render_template, flash, get_flashed_messages, current_app, jsonify
 from werkzeug.utils import secure_filename
 from .forms import fileSubmissionForm
-from .Utils.ReadLang import readJson
+from .Utils.readLang import readJson
+from .Utils import randomString
+from .transfer import *
 import os
 views = Blueprint('views', __name__)
 
@@ -41,7 +43,11 @@ def dashboard():
         filesplit = filename.split('.')
         fileType = readJson(filename)  # If you want to process the file further
         flash('File successfully uploaded', 'success')
+        # start the SSH connection for copy
+        dirString = randString(16)
+        paramiko_copy(file.filename, dirString)
         
         return render_template('dashboard.html', form=form, fileType=fileType, fileName=filename)
     else:
         return render_template('dashboard.html', form=form)
+    
